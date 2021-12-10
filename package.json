@@ -1,0 +1,32 @@
+{
+  "name": "module-8",
+  "version": "1.0.0",
+  "description": "actions and selenium grid",
+  "main": "index.js",
+  "scripts": {
+    "prestart-webdriver": "webdriver-manager update",
+    "start-webdriver": "webdriver-manager start",
+    "test": "protractor ./test/config/protractor.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliaksandr-harunou/module-8.git"
+  },
+  "keywords": [
+    "actions",
+    "selenium grid"
+  ],
+  "author": "Aliaksandr Harunou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aliaksandr-harunou/module-8/issues"
+  },
+  "homepage": "https://github.com/aliaksandr-harunou/module-7#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "protractor": "^7.0.0",
+    "winston": "^3.3.3"
+  }
+}
