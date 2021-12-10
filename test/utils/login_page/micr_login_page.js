@@ -17,13 +17,13 @@ class MicrosoftLoginPage extends BasePage {
   
   async clickYes() {
     await browser.switchTo().defaultContent();  
-    await browser.wait(EC.elementToBeClickable(this.yesButton.element), 20000);      
+    await browser.wait(EC.elementToBeClickable(this.yesButton.element), 60000);      
     return this.yesButton.click();
   };
 
   async clickNo() {
     await browser.switchTo().defaultContent();
-    await browser.wait(EC.elementToBeClickable(this.noButton.element), 10000);
+    await browser.wait(EC.elementToBeClickable(this.noButton.element), 60000);
     return this.noButton.click();
   };
 };

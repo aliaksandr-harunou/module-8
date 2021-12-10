@@ -13,13 +13,17 @@ describe("Heroes home page tests", function () {
     it("should have 11 recent badges", async function () {
         await PageFactory.getPage("Login").open();
         await PageFactory.getPage("Login").typeLogin();
-        await PageFactory.getPage("Login").typePassword();      
-        // await mauseClick(await PageFactory.getPage("Login").signInButton.element);
+        await PageFactory.getPage("Login").typePassword();
+        // for Chrome only
+        // const signInButton = await PageFactory.getPage("Login").signInButton.element; 
+        // await mauseClick(signInButton);  // for Chrome only
         await PageFactory.getPage("Login").wait(1);
         await PageFactory.getPage("Login").clickSignIn();
         await PageFactory.getPage("Login").clickSendMePush();
-        // await browser.wait(EC.elementToBeClickable(await PageFactory.getPage("MicrosoftLogin").yesButton.element), 20000);
-        // await mauseClick(await PageFactory.getPage("MicrosoftLogin").yesButton.element); 
+        // for Chrome only
+        // const yesButton = await PageFactory.getPage("MicrosoftLogin").yesButton.element;  
+        // await browser.wait(EC.elementToBeClickable(yesButton), 80000);
+        // await mauseClick(yesButton);
         await PageFactory.getPage("MicrosoftLogin").clickYes();
         await PageFactory.getPage("Home").waitForFirstNavigationButton();
         await PageFactory.getPage("Home").Header.navigationButtons.clickElementByText("My Profile");
@@ -29,9 +33,10 @@ describe("Heroes home page tests", function () {
         await browser.wait(EC.visibilityOf(appreciationsBadges), 20000);
         await scrollTo(appreciationsBadges);
         await PageFactory.getPage("MyProfile").wait(3);
+        // for Chrome only
         // const firstBadgeOfappreciationBadge = await PageFactory.getPage("MyProfile").appriciationsSection.collection.get(0);
         // await hover(firstBadgeOfappreciationBadge);
-        await PageFactory.getPage("MyProfile").wait(3);
+        // await PageFactory.getPage("MyProfile").wait(3);
         expect(countOfRecentBadges).to.be.equal(11);
     });
 });

@@ -1,7 +1,5 @@
-const { Key } = require("protractor");
-
 async function mauseClick(element) {
-    // await highlight(element);
+    // await highlight(element);  // for Chrome only
     await browser.actions().mouseMove(element).mouseDown().mouseUp().perform();
 }
 

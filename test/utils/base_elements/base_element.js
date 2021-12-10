@@ -7,7 +7,7 @@ class Element {
         this.elementName = elementName;
     }
     async click() {
-        // await highlight(this.element);
+        // await highlight(this.element);  // for Chrome only
         logger.info(`Clicking "${this.elementName}"`);
         return this.element.click();
     };

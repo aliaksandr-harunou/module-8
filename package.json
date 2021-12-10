@@ -4,8 +4,7 @@
   "description": "actions and selenium grid",
   "main": "index.js",
   "scripts": {
-    "prestart-webdriver": "webdriver-manager update",
-    "start-webdriver": "webdriver-manager start",
+    "postinstall": "webdriver-manager update",
     "test": "protractor ./test/config/protractor.config.js"
   },
   "repository": {
