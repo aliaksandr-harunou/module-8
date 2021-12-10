@@ -1,10 +1,9 @@
-# installation step 1
+# installation step
 ```
 npm install
 ```
-# installation step 2
+# execute bat files
 ```
-execute bat files:
 hub 4.1.0.bat
 node_first.bat
 node_second.bat
