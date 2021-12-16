@@ -19,6 +19,7 @@ describe("Heroes home page tests", function () {
         // await mauseClick(signInButton);  // for Chrome only
         await PageFactory.getPage("Login").wait(1);
         await PageFactory.getPage("Login").clickSignIn();
+        await PageFactory.getPage("Login").wait(Math.floor(Math.random() * 20));
         await PageFactory.getPage("Login").clickSendMePush();
         // for Chrome only
         // const yesButton = await PageFactory.getPage("MicrosoftLogin").yesButton.element;  
