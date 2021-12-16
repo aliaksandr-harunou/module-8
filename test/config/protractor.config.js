@@ -3,16 +3,18 @@ exports.config = {
 
     framework: 'mocha',
 
-    specs: [
-        '../specs/*.js'
-    ],
+    // specs: [
+    //     '../specs/*.js'
+    // ],
 
     multiCapabilities: [
     {
-        'browserName': 'firefox'
+        browserName: 'firefox',
+        specs: ['../specs/specFirefox.js'],
     },
     {
-        'browserName': 'chrome'
+        browserName: 'chrome',
+        specs: ['../specs/specChrome.js'],
     }
     ],
     mochaOpts: {
