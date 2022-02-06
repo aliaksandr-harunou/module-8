@@ -3,10 +3,6 @@ exports.config = {
 
     framework: 'mocha',
 
-    // specs: [
-    //     '../specs/*.js'
-    // ],
-
     multiCapabilities: [
     {
         browserName: 'firefox',

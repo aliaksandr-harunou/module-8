@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/aliaksandr-harunou/module-8/issues"
   },
-  "homepage": "https://github.com/aliaksandr-harunou/module-7#readme",
+  "homepage": "https://github.com/aliaksandr-harunou/module-8#readme",
   "devDependencies": {
     "chai": "^4.3.4",
     "mocha": "^9.1.3",

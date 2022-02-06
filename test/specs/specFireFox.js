@@ -1,7 +1,11 @@
 const expect = require("chai").expect;
-const PageFactory = require("../utils/pageFactory");
-const {mauseClick, scrollTo, hover, highlight, pressENTER} = require('../utils/actionsFunctions');
-const EC = protractor.ExpectedConditions;
+const PageFactory = require("../utils/pageObjects/pageFactory");
+const initialLoginPage = PageFactory.getPage("Initial");
+const loginPage = PageFactory.getPage("Login");
+const homePage = PageFactory.getPage("Home");
+const myProfilePage = PageFactory.getPage("MyProfile");
+const {scrollTo} = require('../utils/helpers/actionsFunctions');
+const {wait, open, waitUntilVisible} = require("../utils/helpers/functions");
 
 describe("Heroes home page tests", function () {
 
@@ -11,22 +15,22 @@ describe("Heroes home page tests", function () {
     });
 
     it("should have 11 recent badges", async function () {
-        await PageFactory.getPage("Login").open();
-        await PageFactory.getPage("Login").typeLogin();
-        await PageFactory.getPage("Login").typePassword();
-        await PageFactory.getPage("Login").wait(1);
-        await PageFactory.getPage("Login").clickSignIn();
-        await PageFactory.getPage("Login").wait(Math.floor(Math.random() * 20));
-        await PageFactory.getPage("Login").clickSendMePush();
-        await PageFactory.getPage("MicrosoftLogin").clickYes();
-        await PageFactory.getPage("Home").waitForFirstNavigationButton();
-        await PageFactory.getPage("Home").Header.navigationButtons.clickElementByText("My Profile");
-        await PageFactory.getPage("MyProfile").waitForFirstRecentBadge();
-        const countOfRecentBadges = await PageFactory.getPage("MyProfile").getCountOfRecentBadges();
-        const appreciationsBadges  = await PageFactory.getPage("MyProfile").categorizedBadges.collection.get(3);
-        await browser.wait(EC.visibilityOf(appreciationsBadges), 20000);
+        await open('https://heroes.epam.com/');
+        await initialLoginPage.clickSignInWithEpamCreds();
+        await loginPage.typeLogin();
+        await loginPage.typePassword();
+        await wait(2);
+        await loginPage.clickSignIn();
+        await wait(Math.floor(Math.random() * 20));
+        await loginPage.clickSendMePush();
+        await homePage.waitForFirstNavigationButton();
+        await homePage.Header.navigationButtons.clickElementByText("My Profile");
+        await myProfilePage.waitForFirstRecentBadge();
+        const countOfRecentBadges = await myProfilePage.getCountOfRecentBadges();
+        const appreciationsBadges  = await myProfilePage.categorizedBadges.collection.get(3);
+        await waitUntilVisible(appreciationsBadges);
         await scrollTo(appreciationsBadges);
-        await PageFactory.getPage("MyProfile").wait(3);
+        await wait(2);
         expect(countOfRecentBadges).to.be.equal(11);
     });
 });
