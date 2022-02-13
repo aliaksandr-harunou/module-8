@@ -5,7 +5,7 @@ const loginPage = PageFactory.getPage("Login");
 const homePage = PageFactory.getPage("Home");
 const microsoftLoginPage = PageFactory.getPage("Microsoft");
 const myProfilePage = PageFactory.getPage("MyProfile");
-const {mauseClick, scrollTo} = require('../utils/helpers/actionsFunctions');
+const {scrollTo} = require('../utils/helpers/actionsFunctions');
 const {wait, open, waitUntilVisible} = require("../utils/helpers/functions");
 const EC = protractor.ExpectedConditions;
 
@@ -13,7 +13,7 @@ describe("Heroes home page tests", function () {
 
     beforeEach(function() {
             browser.ignoreSynchronization = true;
-            return browser.manage().window().maximize();
+            browser.manage().window().maximize();
     });
 
     it("should have 11 recent badges", async function () {

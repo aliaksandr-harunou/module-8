@@ -14,14 +14,14 @@ class LoginPage extends BasePage {
   };
   
   clickSignIn() {
-    return this.signInButton.click();
+    this.signInButton.click();
   };
 
   async clickSendMePush() {
     await browser.wait(EC.visibilityOf(this.iFrame.element), 10000);
     await browser.switchTo().frame(0);
     await browser.wait(EC.elementToBeClickable(this.pushButton.element), 10000);
-    return this.pushButton.click();
+    this.pushButton.click();
   };
 
   typeLogin() {

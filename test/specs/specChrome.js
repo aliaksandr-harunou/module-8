@@ -13,7 +13,7 @@ describe("Heroes home page tests", function () {
 
     beforeEach(function() {
             browser.ignoreSynchronization = true;
-            return browser.manage().window().maximize();
+            browser.manage().window().maximize();
     });
 
     it("should have 11 recent badges", async function () {
