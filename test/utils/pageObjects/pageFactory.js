@@ -1,5 +1,6 @@
 const HomePage = require("./homePage/homePage");
 const MyProfilePage = require("./myProfilePage/myProfilePage");
+const MicrosoftLoginPage = require("./loginPages/micrLoginPage/micrLoginPage");
 const LoginPage = require("./loginPages/epamLoginPage/epamLoginPage");
 const InitialLoginPage = require("./loginPages/initialLoginPage/initialLoginPage");
 const BasePage = require("./basePage/basePage");
@@ -10,6 +11,8 @@ class PageFactory {
         switch (pageName) {
             case "Home":
                 return new HomePage(); 
+            case "Microsoft":
+                return new MicrosoftLoginPage(); 
             case "Initial":
                 return new InitialLoginPage(); 
             case "Login":

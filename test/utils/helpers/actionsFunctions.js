@@ -1,3 +1,6 @@
+const {wait} = require('./functions')
+
+
 async function mauseClick(element) {
     await highlight(element);  // for Chrome only
     await browser.actions().mouseMove(element).mouseDown().mouseUp().perform();
@@ -8,6 +11,7 @@ async function scrollTo(element) {
 }
 
 async function hover(element) {
+    await wait(2);
     await highlight(element);  // for Chrome only
     return await browser.actions().mouseMove(element).perform();
 }
